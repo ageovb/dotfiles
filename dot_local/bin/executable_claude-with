@@ -129,7 +129,7 @@ launch_claude() {
     echo ""
 
     # Important: ~/.claude/settings.json may include a default provider's env (e.g. ANTHROPIC_BASE_URL).
-    # When default is a third-party provider, that global env will break `ccw anthropic` unless we override it.
+    # When default is a third-party provider, that global env will break `cw anthropic` unless we override it.
     # Strategy:
     #   - Load the user's global settings JSON
     #   - Strip provider-specific keys (apiKeyHelper + ANTHROPIC_* routing/model)

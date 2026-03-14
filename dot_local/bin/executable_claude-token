@@ -15,9 +15,9 @@ SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)"
 source "$SCRIPT_DIR/lib/ai/claude"
 
 # Get current provider@account from chezmoi data
-# Supports override via _CLAUDE_OVERRIDE_ACCOUNT for ccw
+# Supports override via _CLAUDE_OVERRIDE_ACCOUNT for cw
 get_provider_account() {
-    # Check for ccw override first
+    # Check for cw override first
     if [[ -n "${_CLAUDE_OVERRIDE_ACCOUNT:-}" ]]; then
         echo "$_CLAUDE_OVERRIDE_ACCOUNT"
         return

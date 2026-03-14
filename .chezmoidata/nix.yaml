@@ -8,7 +8,6 @@ nix:
       - certbot
       - dasel
       - dust
-      - ffmpeg
       - ghostscript # gs - PDF/PostScript processor (Snacks.image dependency)
       - hyperfine
       - mermaid-cli # mmdc - Mermaid diagram renderer (render-markdown.nvim dependency)
@@ -32,7 +31,7 @@ nix:
       - wget
       - zstd
     work:
-      - mariadb
+
       - postgresql
       - redis
     private: []

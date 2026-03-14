@@ -1089,9 +1089,9 @@ _codex_with() {
 # Register completions when in zsh
 if [[ -n "$ZSH_VERSION" ]]; then
     compdef _claude_manage claude-manage 2>/dev/null
-    compdef _claude_manage ccm 2>/dev/null
+    compdef _claude_manage cm 2>/dev/null
     compdef _claude_with claude-with 2>/dev/null
-    compdef _claude_with ccw 2>/dev/null
+    compdef _claude_with cw 2>/dev/null
     compdef _codex_manage codex-manage 2>/dev/null
     compdef _codex_manage cxm 2>/dev/null
     compdef _codex_with codex-with 2>/dev/null

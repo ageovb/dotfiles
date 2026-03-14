@@ -37,7 +37,7 @@
       # Menu bar clock format
       menuExtraClock = {
         Show24Hour = true;
-        ShowSeconds = false;
+        ShowSeconds = true;
         ShowDayOfWeek = true;
         ShowDate = 1; # 0 = When space allows, 1 = Always, 2 = Never
       };
@@ -48,10 +48,22 @@
         show-recents = false; # disable recent apps
 
         # customize Hot Corners
-        wvous-tl-corner = 2; # top-left - Mission Control
-        wvous-tr-corner = 1; # top-right - Disabled (was Lock Screen)
-        wvous-bl-corner = 3; # bottom-left - Application Windows
-        wvous-br-corner = 4; # bottom-right - Desktop
+        wvous-tl-corner = 2; # top-left
+        wvous-tr-corner = 10; # top-right
+        wvous-bl-corner = 3; # bottom-left
+        wvous-br-corner = 4; # bottom-right
+        # `1`: Disabled
+        # `2`: Mission Control
+        # `3`: Application Windows
+        # `4`: Desktop
+        # `5`: Start Screen Saver
+        # `6`: Disable Screen Saver
+        # `7`: Dashboard
+        # `10`: Put Display to Sleep
+        # `11`: Launchpad
+        # `12`: Notification Center
+        # `13`: Lock Screen
+        # `14`: Quick Note
       };
 
       # customize finder
@@ -76,8 +88,7 @@
       #   https://github.com/yannbertrand/macos-defaults
       NSGlobalDomain = {
         # `defaults read NSGlobalDomain "xxx"`
-        "_HIHideMenuBar" = false; # always show menu bar
-        "com.apple.swipescrolldirection" = false; # enable natural scrolling(default to true)
+        "com.apple.swipescrolldirection" = true; # enable natural scrolling(default to true)
         "com.apple.sound.beep.feedback" = 0; # disable beep sound when pressing volume up/down key
         "com.apple.keyboard.fnState" = true; # F1-F12 as standard function keys (REQUIRES RESTART)
         AppleInterfaceStyle = null; # dark mode
