@@ -30,3 +30,56 @@ setopt print_eight_bit
 if [[ -r $HOME/.custom/local.sh ]]; then
   source "$HOME/.custom/local.sh"
 fi
+
+# 增强历史记录
+HISTSIZE=10000
+SAVEHIST=10000
+setopt appendhistory
+setopt share_history
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+
+# 其他选项
+setopt print_eight_bit
+setopt correct
+setopt auto_cd
+setopt extended_glob
+
+# 补全设置
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' menu select
+zstyle ':completion:*' verbose yes
+
+# Local completions (ripgrep)
+fpath=(~/.local/share/zsh/completions $fpath)
+
+# 扩展补全
+fpath=(~/.zsh/plugins/zsh-completions/src $fpath)
+
+# zsh-autosuggestions - 自动建议（灰色提示）
+source ~/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#888"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+
+# zsh-history-substring-search - 子串搜索
+source ~/.zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+
+# zsh-syntax-highlighting - 语法高亮 (必须在最后加载)
+source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+[[ -f "$HOME/.config/kaku/zsh/kaku.zsh" ]] && source "$HOME/.config/kaku/zsh/kaku.zsh" # Kaku Shell Integration
+
+[[ ":$PATH:" != *":$HOME/.config/kaku/zsh/bin:"* ]] && export PATH="$HOME/.config/kaku/zsh/bin:$PATH" # Kaku PATH Integration
+
+# pnpm
+export PNPM_HOME="/Users/ageovb/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+export PNPM_HOME="/Users/ageovb/.local/share/pnpm"
+export PATH="$PNPM_HOME:$PATH"
